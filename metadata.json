@@ -1,0 +1,8 @@
+{
+  "name": "AutoClick Agency Website",
+  "description": "A production-ready business automation agency website designed with government-style transparency and enterprise SaaS reliability features.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

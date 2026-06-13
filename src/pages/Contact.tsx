@@ -3,6 +3,7 @@ import { SEO } from "../components/SEO";
 import { Button } from "../components/ui/Button";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 
 export default function Contact() {
   const location = useLocation();
@@ -41,17 +42,48 @@ export default function Contact() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
+      // Focus first invalid field
+      const firstInvalidField = Object.keys(newErrors)[0];
+      const el = document.getElementById(firstInvalidField);
+      if (el) el.focus();
       return;
     }
 
     setErrors({});
     setStatus("submitting");
 
-    // Simulate network request
-    setTimeout(() => {
+    try {
+      const name = formData.get('name') as string;
+      const email = formData.get('email') as string;
+      const phone = formData.get('phone') as string;
+      const businessName = formData.get('businessName') as string;
+      const service = formData.get('service') as string;
+      const originalMessage = formData.get('message') as string;
+
+      // Compile the full message since schema only accepts name, email, phone, message
+      const fullMessage = `Business Name: ${businessName}\nService Area: ${service || 'Not specified'}\n\nMessage: ${originalMessage}`;
+
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            name,
+            email,
+            phone,
+            message: fullMessage
+          }
+        ]);
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
       setStatus("success");
       (e.target as HTMLFormElement).reset();
-    }, 1500);
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -80,7 +112,7 @@ export default function Contact() {
               <CheckCircle2 className="w-12 h-12 text-emerald-600 mb-4" />
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Request Submitted Successfully</h2>
               <p className="text-slate-600">
-                Thank you for reaching out. A confirmation email has been sent to your address. Our team will review your information and be in touch shortly.
+                Thank you for contacting AutoClick Agency. We will get back to you shortly.
               </p>
               <Button className="mt-6" variant="outline" onClick={() => setStatus("idle")}>
                 Submit another request
@@ -88,6 +120,12 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 bg-white border border-slate-200 p-8 rounded-lg shadow-sm">
+              {status === "error" && (
+                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                  <p>Something went wrong. Please try again later.</p>
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <div className="space-y-2">

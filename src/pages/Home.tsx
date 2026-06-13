@@ -47,7 +47,7 @@ export default function Home() {
                 AutoClick Agency helps small businesses eliminate bottlenecks using practical automation systems that improve efficiency, generate more leads, and unlock sustainable growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" href="/contact">Book a Free Consultation</Button>
+                <Button size="lg" href="/contact">Contact Us</Button>
                 <Button size="lg" variant="outline" href="/services">Explore Services</Button>
               </div>
             </motion.div>

@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { createClient } from '@supabase/supabase-js';
 
 // Use Vite's import.meta.env instead of process.env, and fallback to the provided values

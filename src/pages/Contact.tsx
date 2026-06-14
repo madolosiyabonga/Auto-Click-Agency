@@ -141,18 +141,21 @@ export default function Contact() {
         description="Book a free operational audit with AutoClick Agency. We'll identify bottlenecks and design custom automation solutions for your business."
       />
 
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative pt-24 pb-20 bg-slate-950 overflow-hidden border-b border-slate-900">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-900/30 to-transparent"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">Schedule an Operational Audit</h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Schedule an Operational Audit</h1>
+            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl">
               Fill out the form below. Our systems engineering team will review your submission and contact you to arrange an introductory strategy call.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white relative">
+      <section className="py-20 bg-slate-50 relative">
         {/* Success Toast */}
         {status === "success" && (
           <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-6 py-4 rounded-lg shadow-xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-5">

@@ -8,18 +8,21 @@ export default function About() {
         description="Learn about AutoClick Agency, our mission to automate small businesses, and our commitment to enterprise-grade reliability."
       />
 
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative pt-24 pb-20 bg-slate-950 overflow-hidden border-b border-slate-900">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-950 to-slate-950"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">About AutoClick</h1>
-            <p className="text-lg text-slate-600 leading-relaxed bg-white/50 inline-block">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">About AutoClick</h1>
+            <p className="text-lg text-slate-400 leading-relaxed bg-slate-950/50 inline-block">
               We started with a simple observation: Small businesses are drowning in administrative work that enterprise companies automated a decade ago.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 space-y-12 text-slate-700 leading-relaxed">
           
           <div>

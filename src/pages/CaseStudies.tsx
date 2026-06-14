@@ -18,11 +18,14 @@ export default function CaseStudies() {
         description="Read how AutoClick Agency helped businesses reduce administrative workload, improve response times, and increase lead conversion rates."
       />
 
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative pt-24 pb-20 bg-slate-950 overflow-hidden border-b border-slate-900">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-900/20 via-slate-950 to-slate-950"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">Client Success Stories</h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Client Success Stories</h1>
+            <p className="text-lg text-slate-400 leading-relaxed max-w-2xl bg-slate-950/50 inline-block">
               We measure our success entirely by the operational hours saved and the additional revenue generated for our clients. Review our recent implementations below.
             </p>
           </div>

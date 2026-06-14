@@ -110,18 +110,21 @@ export default function FAQ() {
         structuredData={faqSchema}
       />
 
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative pt-24 pb-20 bg-slate-950 overflow-hidden border-b border-slate-900">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-cyan-900/20"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">Frequently Asked Questions</h1>
-            <p className="text-lg text-slate-600 leading-relaxed bg-white/50 inline-block">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Frequently Asked Questions</h1>
+            <p className="text-lg text-slate-400 leading-relaxed bg-slate-950/50 inline-block">
               Clear, expert insights on how business automation and AI systems are deployed securely and effectively in modern small businesses.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           
           <div className="bg-slate-50 border border-slate-200 rounded-lg p-6 mb-12">

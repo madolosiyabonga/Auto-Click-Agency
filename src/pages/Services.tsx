@@ -41,18 +41,21 @@ export default function Services() {
         description="AutoClick Agency services include Business Process Automation, Lead Generation Systems, AI Implementation, and Digital Growth Infrastructure."
       />
 
-      <section className="pt-20 pb-16 bg-slate-50 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="relative pt-24 pb-20 bg-slate-950 overflow-hidden border-b border-slate-900">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/40 via-slate-950 to-slate-950"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">Practical Automation Solutions</h1>
-            <p className="text-lg text-slate-600 leading-relaxed bg-white/50 inline-block">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">Practical Automation Solutions</h1>
+            <p className="text-lg text-slate-400 leading-relaxed bg-slate-950/50 inline-block">
               We design and implement bespoke operational frameworks. Our services focus exclusively on systems that reduce administrative bloat and directly generate revenue.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {SERVICES.map((srv) => (
@@ -84,13 +87,16 @@ export default function Services() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="py-24 bg-slate-100 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-6">Not sure which service you need?</h2>
-          <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
+      <section className="py-24 bg-blue-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,_var(--tw-gradient-stops))] from-cyan-400/20 via-blue-600 to-blue-600"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">Not sure which service you need?</h2>
+          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
             Book a free operational audit. We'll review your current processes and identify the exact bottlenecks where automation will yield the highest ROI.
           </p>
-          <Button size="lg" href="/contact">
+          <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white border-0 shadow-lg" href="/contact">
             Request an Operational Audit
           </Button>
         </div>

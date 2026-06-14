@@ -19,15 +19,15 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Sticky Navbar */}
-      <header className="hidden md:flex sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm items-center h-16 px-6 lg:px-12">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900 mr-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded">
+      <header className="hidden md:flex sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 shadow-sm items-center h-16 px-6 lg:px-12">
+        <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-white mr-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
           <motion.div 
             initial={{ rotate: -10, scale: 0.9 }}
             animate={{ rotate: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="flex items-center"
           >
-            <span className="text-blue-600">Auto</span>Click
+            <span className="text-blue-500">Auto</span>Click
           </motion.div>
         </Link>
         <nav className="flex-1 flex gap-6">
@@ -36,15 +36,15 @@ export function Navbar() {
               key={item.path}
               to={item.path}
               className={cn(
-                "relative text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded px-1 py-0.5",
-                location.pathname === item.path ? "text-blue-600" : "text-slate-600 hover:text-blue-600"
+                "relative text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded px-1 py-0.5",
+                location.pathname === item.path ? "text-white" : "text-slate-400 hover:text-white"
               )}
             >
               {item.label}
               {location.pathname === item.path && (
                 <motion.div 
                   layoutId="navbar-underline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -54,7 +54,7 @@ export function Navbar() {
       </header>
 
       {/* Mobile Sticky Bottom Navbar */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950 border-t border-slate-800 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.2)]">
         <div className="flex items-center justify-around h-16 px-2">
           {NAV_ITEMS.filter((item) => item.mobile).map((item) => {
             const Icon = item.icon!;
@@ -64,8 +64,8 @@ export function Navbar() {
                 key={item.path}
                 to={item.path}
                 className={cn(
-                  "relative flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded",
-                  isActive ? "text-blue-600" : "text-slate-500"
+                  "relative flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded",
+                  isActive ? "text-blue-400" : "text-slate-500"
                 )}
               >
                 <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
@@ -73,7 +73,7 @@ export function Navbar() {
                 {isActive && (
                   <motion.div 
                     layoutId="mobile-navbar-indicator"
-                    className="absolute top-0 w-8 h-1 bg-blue-600 rounded-b-full"
+                    className="absolute top-0 w-8 h-1 bg-blue-500 rounded-b-full"
                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                   />
                 )}

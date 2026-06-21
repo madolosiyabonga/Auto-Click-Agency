@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Home, Briefcase, Building2, HelpCircle, Mail, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
+import logoImage from "@/assets/images/autoclick_logo_1782068127488.jpg";
 
 const NAV_ITEMS = [
   { label: "Home", path: "/", icon: Home, mobile: true },
@@ -20,15 +21,21 @@ export function Navbar() {
     <>
       {/* Desktop Sticky Navbar */}
       <header className="hidden md:flex sticky top-0 z-50 w-full bg-slate-950/90 backdrop-blur-md border-b border-slate-800 shadow-sm items-center h-16 px-6 lg:px-12">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-white mr-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+        <Link to="/" className="flex items-center gap-3 font-bold text-xl tracking-tight text-white mr-8 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
           <motion.div 
             initial={{ rotate: -10, scale: 0.9 }}
             animate={{ rotate: 0, scale: 1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="flex items-center"
           >
-            <span className="text-blue-500">Auto</span>Click
+            <img 
+              src={logoImage} 
+              alt="AutoClick Logo" 
+              className="w-8 h-8 rounded-md object-cover border border-slate-800"
+              referrerPolicy="no-referrer"
+            />
           </motion.div>
+          <span><span className="text-blue-500">Auto</span>Click</span>
         </Link>
         <nav className="flex-1 flex gap-6">
           {NAV_ITEMS.map((item) => (

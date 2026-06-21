@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoImage from "@/assets/images/autoclick_logo_1782068127488.jpg";
 
 export function Footer() {
   return (
@@ -6,8 +7,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-white">
-              <span className="text-blue-500">Auto</span>Click Agency
+            <div className="flex items-center gap-3 font-bold text-xl tracking-tight text-white">
+              <img 
+                src={logoImage} 
+                alt="AutoClick Logo" 
+                className="w-8 h-8 rounded-md object-cover border border-slate-800"
+                referrerPolicy="no-referrer"
+              />
+              <span><span className="text-blue-500">Auto</span>Click Agency</span>
             </div>
             <p className="text-sm text-slate-400 max-w-sm">
               Helping small businesses grow and operate more efficiently by identifying operational bottlenecks and implementing practical automation solutions.

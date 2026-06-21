@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Briefcase, Building2, HelpCircle, Mail, Menu } from "lucide-react";
+import { Home, Briefcase, Building2, HelpCircle, Mail, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import logoImage from "@/assets/images/autoclick_logo_1782068127488.jpg";
@@ -16,6 +16,10 @@ const NAV_ITEMS = [
 
 export function Navbar() {
   const location = useLocation();
+
+  const handleOpenSearch = () => {
+    window.dispatchEvent(new CustomEvent('open-command-palette'));
+  };
 
   return (
     <>
@@ -37,7 +41,7 @@ export function Navbar() {
           </motion.div>
           <span><span className="text-blue-500">Auto</span>Click</span>
         </Link>
-        <nav className="flex-1 flex gap-6">
+        <nav className="flex-1 flex gap-6 items-center">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.path}
@@ -58,11 +62,24 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
+        
+        <div className="flex items-center ml-4">
+          <button
+            onClick={handleOpenSearch}
+            className="flex items-center gap-2 px-3 py-1.5 text-sm text-slate-400 bg-slate-900 border border-slate-700 hover:border-slate-600 hover:text-white rounded-md transition-colors"
+          >
+            <Search className="w-4 h-4" />
+            <span className="hidden lg:inline-block">Search...</span>
+            <kbd className="hidden lg:inline-block ml-2 text-[10px] font-sans font-semibold px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-400">
+              ⌘K
+            </kbd>
+          </button>
+        </div>
       </header>
 
       {/* Mobile Sticky Bottom Navbar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-slate-950 border-t border-slate-800 pb-safe shadow-[0_-2px_10px_rgba(0,0,0,0.2)]">
-        <div className="flex items-center justify-around h-16 px-2">
+        <div className="flex items-center justify-around h-16 px-1">
           {NAV_ITEMS.filter((item) => item.mobile).map((item) => {
             const Icon = item.icon!;
             const isActive = location.pathname === item.path;
@@ -87,6 +104,13 @@ export function Navbar() {
               </Link>
             );
           })}
+          <button
+            onClick={handleOpenSearch}
+            className="relative flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded text-slate-500"
+          >
+            <Search size={20} strokeWidth={2} />
+            <span className="text-[10px] font-medium leading-none">Search</span>
+          </button>
         </div>
       </nav>
     </>

@@ -3,13 +3,22 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CommandPalette } from "../CommandPalette";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -23,6 +32,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <CommandPalette />
     </div>
   );
 }
